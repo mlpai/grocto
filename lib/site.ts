@@ -12,8 +12,8 @@ export const siteConfig = {
   udyam: "UDYAM-PB-03-0073402",
   trademarkClass: "Class 39 — Food delivery services",
   address: {
-    line1: "31956, Street No. 8G",
-    line2: "Paras Ram Nagar",
+    line1: "Bedi Market, Street No. 4",
+    line2: "Pukhraj Colony",
     city: "Bathinda",
     state: "Punjab",
     pin: "151001",
