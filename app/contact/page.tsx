@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero, Section } from "@/components/page-shell";
 import { siteConfig } from "@/lib/site";
@@ -27,12 +27,6 @@ export default function ContactPage() {
                 label: "Email",
                 value: siteConfig.email,
                 href: `mailto:${siteConfig.email}`,
-              },
-              {
-                icon: Phone,
-                label: "Phone",
-                value: siteConfig.phone,
-                href: siteConfig.phoneHref,
               },
               {
                 icon: MapPin,

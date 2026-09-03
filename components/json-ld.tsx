@@ -11,7 +11,6 @@ export function JsonLd() {
         legalName: siteConfig.legalName,
         url: siteConfig.url,
         email: siteConfig.email,
-        telephone: "+919778390009",
         logo: `${siteConfig.url}/grocto-logo.png`,
         image: `${siteConfig.url}/grocto-logo.png`,
         vatID: siteConfig.gstin,
@@ -27,7 +26,6 @@ export function JsonLd() {
           "@type": "ContactPoint",
           contactType: "customer support",
           email: siteConfig.email,
-          telephone: "+919778390009",
           areaServed: "IN",
           availableLanguage: ["English", "Hindi"],
         },
@@ -45,7 +43,6 @@ export function JsonLd() {
         description: siteConfig.description,
         url: siteConfig.url,
         email: siteConfig.email,
-        telephone: siteConfig.phone,
         address: {
           "@type": "PostalAddress",
           streetAddress: `${siteConfig.address.line1}, ${siteConfig.address.line2}`,

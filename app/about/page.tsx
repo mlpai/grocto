@@ -76,11 +76,6 @@ export default function AboutPage() {
           <a className="font-medium text-primary" href={`mailto:${siteConfig.email}`}>
             {siteConfig.email}
           </a>
-          <br />
-          Phone{" "}
-          <a className="font-medium text-primary" href={siteConfig.phoneHref}>
-            {siteConfig.phone}
-          </a>
         </p>
       </Section>
     </>

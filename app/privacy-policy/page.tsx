@@ -256,8 +256,6 @@ export default function PrivacyPage() {
           <a className="font-semibold text-primary" href={`mailto:${siteConfig.email}`}>
             {siteConfig.email}
           </a>
-          <br />
-          Phone: {siteConfig.phone}
         </p>
         <p>
           We aim to acknowledge privacy complaints within 48 hours and resolve

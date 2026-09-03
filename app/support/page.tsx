@@ -64,10 +64,6 @@ export default function SupportPage() {
             Email{" "}
             <a className="font-semibold text-primary" href={`mailto:${siteConfig.email}`}>
               {siteConfig.email}
-            </a>{" "}
-            or call{" "}
-            <a className="font-semibold text-primary" href={siteConfig.phoneHref}>
-              {siteConfig.phone}
             </a>
             .
           </p>

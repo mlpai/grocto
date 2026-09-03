@@ -140,9 +140,8 @@ export default function TermsPage() {
           forum rights you may have.
         </p>
         <p>
-          Contact: {siteConfig.email} · {siteConfig.phone} ·{" "}
-          {siteConfig.address.line1}, {siteConfig.address.city}{" "}
-          {siteConfig.address.pin}.
+          Contact: {siteConfig.email} · {siteConfig.address.line1},{" "}
+          {siteConfig.address.city} {siteConfig.address.pin}.
         </p>
       </LegalSection>
     </LegalLayout>
