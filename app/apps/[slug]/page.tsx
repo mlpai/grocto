@@ -1,38 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { PageHero, Section } from "@/components/page-shell";
+import { StoreButtons } from "@/components/store-buttons";
 import { Button } from "@/components/ui/button";
 import { apps } from "@/lib/site";
-
-type AppSlug = (typeof apps)[number]["slug"];
-
-const extras: Record<
-  AppSlug,
-  { comingSoon: string; extra: string[] }
-> = {
-  grocto: {
-    comingSoon: "Grocto will be listed on Google Play and the App Store from this organisation account.",
-    extra: [
-      "Mobile-number login with OTP",
-      "Multiple saved addresses and GPS detection",
-      "Veg / non-veg filters and open/closed store status",
-      "Cancellation before restaurant acceptance",
-      "Ratings, reviews, and past invoices",
-    ],
-  },
-  partner: {
-    comingSoon: "Grocto Partner is published for Android delivery partners onboarded by Pick & Drop Services.",
-    extra: [
-      "Only onboarded riders can sign in",
-      "Admin can activate or block a partner account",
-      "Live location is used while a delivery is in progress",
-      "COD amounts are shown before pickup",
-      "Daily earnings and completed-order summaries",
-    ],
-  },
-};
 
 export async function generateStaticParams() {
   return apps.map((app) => ({ slug: app.slug }));
@@ -60,7 +34,6 @@ export default async function AppDetailPage({
   const { slug } = await params;
   const app = apps.find((item) => item.slug === slug);
   if (!app) notFound();
-  const extra = extras[app.slug];
 
   return (
     <>
@@ -76,27 +49,72 @@ export default async function AppDetailPage({
             All apps
           </Link>
         </Button>
-        <div className="grid gap-8 lg:grid-cols-[1fr_280px]">
+        <div className="grid gap-10 lg:grid-cols-[1fr_280px]">
           <div>
-            <h2 className="text-2xl font-bold">What this app does</h2>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+              <Image
+                src={app.icon}
+                alt={`${app.name} app icon`}
+                width={512}
+                height={512}
+                className="size-20 rounded-3xl border border-border bg-white object-cover"
+              />
+              <div>
+                <p className="text-sm text-muted-foreground">{app.about}</p>
+                <StoreButtons app={app} className="mt-4" />
+              </div>
+            </div>
+
+            <h2 className="mt-10 text-2xl font-bold">Screenshots</h2>
+            <div className="-mx-4 mt-5 flex gap-4 overflow-x-auto px-4 pb-2">
+              {app.screenshots.map((src, index) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt={`${app.name} screenshot ${index + 1}`}
+                  width={460}
+                  height={996}
+                  className="h-80 w-auto shrink-0 rounded-2xl border border-border bg-navy object-cover"
+                />
+              ))}
+            </div>
+
+            <h2 className="mt-10 text-2xl font-bold">What this app does</h2>
             <ul className="mt-5 space-y-2.5 text-sm leading-relaxed text-navy/80">
-              {[...app.features, ...extra.extra].map((feature) => (
+              {app.features.map((feature) => (
                 <li key={feature} className="flex gap-2">
                   <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
                   {feature}
                 </li>
               ))}
             </ul>
-            <p className="mt-8 rounded-2xl bg-cream px-5 py-4 text-sm text-muted-foreground">
-              {extra.comingSoon} Store listing links will be added here as soon
-              as the apps are live.
-            </p>
           </div>
           <aside className="h-fit rounded-3xl border border-border bg-white p-6">
             <p className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
               Publisher
             </p>
             <p className="mt-1 font-semibold">Pick & Drop Services</p>
+            <p className="mt-5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              Download
+            </p>
+            <div className="mt-3 flex flex-col gap-2 text-sm">
+              <a
+                className="text-primary hover:underline"
+                href={app.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Play
+              </a>
+              <a
+                className="text-primary hover:underline"
+                href={app.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                App Store
+              </a>
+            </div>
             <p className="mt-5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
               Legal pages
             </p>

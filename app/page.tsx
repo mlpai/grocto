@@ -6,12 +6,12 @@ import {
   Clock3,
   MapPin,
   ShieldCheck,
-  ShoppingBag,
   Smartphone,
   Store,
   UtensilsCrossed,
 } from "lucide-react";
 import { Eyebrow, Section } from "@/components/page-shell";
+import { StoreButtons } from "@/components/store-buttons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -64,23 +64,15 @@ export default function HomePage() {
               Operated by {siteConfig.legalName}.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button
-                asChild
-                className="h-12 rounded-full px-6 text-base font-semibold"
-              >
-                <Link href="/apps">
-                  View our apps
-                  <ArrowRight />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="h-12 rounded-full px-6 text-base font-semibold"
-              >
-                <Link href="/privacy-policy">Privacy Policy</Link>
-              </Button>
+              <StoreButtons app={apps[0]} />
             </div>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Riders: download{" "}
+              <Link href="/apps/partner" className="font-semibold text-primary">
+                Grocto Partner
+              </Link>
+              .
+            </p>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-2">
                 <Smartphone className="size-4 text-primary" /> Grocto App
@@ -133,21 +125,21 @@ export default function HomePage() {
           Two apps. One delivery network.
         </h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          Grocto currently publishes a customer ordering app and a delivery
-          partner app. Restaurant partners use a separate web panel to manage
-          menus and incoming orders.
+          Grocto is on Google Play and the App Store: a customer ordering app
+          and a delivery partner app. Restaurant partners use a separate web
+          panel to manage menus and incoming orders.
         </p>
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {apps.map((app) => (
             <Card key={app.slug} className="rounded-3xl py-6 ring-border">
               <CardHeader className="px-6">
-                <div className="mb-3 flex size-12 items-center justify-center rounded-2xl bg-secondary text-primary">
-                  {app.slug === "grocto" ? (
-                    <ShoppingBag className="size-6" />
-                  ) : (
-                    <Bike className="size-6" />
-                  )}
-                </div>
+                <Image
+                  src={app.icon}
+                  alt={`${app.name} app icon`}
+                  width={512}
+                  height={512}
+                  className="mb-3 size-16 rounded-2xl border border-border bg-white object-cover"
+                />
                 <p className="text-xs font-semibold tracking-wide text-primary uppercase">
                   {app.audience} · {app.platforms}
                 </p>
@@ -157,10 +149,11 @@ export default function HomePage() {
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {app.summary}
                 </p>
+                <StoreButtons app={app} className="mt-5" />
                 <Button
                   asChild
                   variant="outline"
-                  className="mt-6 h-10 rounded-full px-4 font-semibold"
+                  className="mt-4 h-10 rounded-full px-4 font-semibold"
                 >
                   <Link href={app.href}>
                     App details

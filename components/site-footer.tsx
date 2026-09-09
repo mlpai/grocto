@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/brand-mark";
-import { legalNav, nav, siteConfig } from "@/lib/site";
+import { FooterStoreLinks } from "@/components/store-buttons";
+import { apps, legalNav, nav, siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-navy text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
-        <div className="md:col-span-2">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-12">
+        <div className="lg:col-span-4">
           <div className="inline-flex rounded-2xl bg-white p-3">
             <BrandMark className="h-16 w-auto" />
           </div>
@@ -20,7 +21,7 @@ export function SiteFooter() {
             GSTIN {siteConfig.gstin} · Udyam {siteConfig.udyam}
           </p>
         </div>
-        <div>
+        <div className="lg:col-span-2">
           <h3 className="text-sm font-semibold tracking-wide text-white">
             Company
           </h3>
@@ -34,7 +35,7 @@ export function SiteFooter() {
             ))}
           </ul>
         </div>
-        <div>
+        <div className="lg:col-span-3">
           <h3 className="text-sm font-semibold tracking-wide text-white">
             Policies
           </h3>
@@ -47,6 +48,16 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="lg:col-span-3">
+          <h3 className="text-sm font-semibold tracking-wide text-white">
+            Get the apps
+          </h3>
+          <div className="mt-4 grid gap-5">
+            {apps.map((app) => (
+              <FooterStoreLinks key={app.slug} app={app} />
+            ))}
+          </div>
         </div>
       </div>
       <div className="border-t border-white/10">

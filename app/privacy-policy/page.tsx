@@ -56,7 +56,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             The <strong>Grocto Partner</strong> delivery-partner application
-            (Android)
+            (Android and iOS)
           </li>
           <li>
             Related websites, restaurant partner panel, admin tools, SMS, and

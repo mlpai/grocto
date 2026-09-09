@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Bike, ShoppingBag } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PageHero, Section } from "@/components/page-shell";
+import { StoreButtons } from "@/components/store-buttons";
 import { Button } from "@/components/ui/button";
 import { apps } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Apps",
   description:
-    "Grocto currently publishes two mobile apps: Grocto for customers and Grocto Partner for delivery riders.",
+    "Download Grocto and Grocto Partner on Google Play and the App Store.",
 };
 
 export default function AppsPage() {
@@ -17,7 +19,7 @@ export default function AppsPage() {
       <PageHero
         eyebrow="Products"
         title="Apps published by Grocto"
-        description="For Google Play and the App Store, Grocto currently lists one customer app and one delivery-partner app. Restaurant operations run on the web."
+        description="Grocto and Grocto Partner are live on Google Play and the App Store. Restaurant operations run on a separate web panel."
       />
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
@@ -26,13 +28,13 @@ export default function AppsPage() {
               key={app.slug}
               className="rounded-3xl border border-border bg-white p-7"
             >
-              <div className="flex size-12 items-center justify-center rounded-2xl bg-secondary text-primary">
-                {app.slug === "grocto" ? (
-                  <ShoppingBag className="size-6" />
-                ) : (
-                  <Bike className="size-6" />
-                )}
-              </div>
+              <Image
+                src={app.icon}
+                alt={`${app.name} app icon`}
+                width={512}
+                height={512}
+                className="size-16 rounded-2xl border border-border bg-white object-cover"
+              />
               <p className="mt-4 text-xs font-semibold tracking-wide text-primary uppercase">
                 {app.audience} · {app.platforms}
               </p>
@@ -48,19 +50,13 @@ export default function AppsPage() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button asChild className="h-10 rounded-full px-4 font-semibold">
+              <StoreButtons app={app} className="mt-6" />
+              <div className="mt-4">
+                <Button asChild variant="outline" className="h-10 rounded-full px-4 font-semibold">
                   <Link href={app.href}>
                     Learn more
                     <ArrowRight />
                   </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="h-10 rounded-full px-4 font-semibold"
-                >
-                  <Link href={app.privacyHref}>Privacy for this app</Link>
                 </Button>
               </div>
             </article>

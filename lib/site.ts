@@ -20,7 +20,7 @@ export const siteConfig = {
     country: "India",
   },
   supportHours: "Monday – Sunday, 9:00 AM – 9:00 PM IST",
-  lastUpdated: "3 September 2026",
+  lastUpdated: "9 September 2026",
 } as const;
 
 export const addressLines = [
@@ -54,17 +54,29 @@ export const apps = [
     shortName: "Customer App",
     audience: "Customers",
     platforms: "Android & iOS",
+    icon: "/apps/grocto-icon.png",
     summary:
-      "Order food, fruits, and local store items from nearby restaurants and shops. Track delivery live, pay with UPI or cash, and manage addresses in one place.",
+      "Fresh food and everyday essentials delivered to your doorstep. Browse nearby restaurants and a dedicated fruits store, order in a few taps, and track delivery live.",
+    about:
+      "Grocto makes it easy to order delicious food from nearby restaurants or fresh fruits for everyday needs — all from one app. The home screen has two dedicated sections, Restaurants and Fruits, with separate carts so you can place a food order or a fruit order independently.",
     href: "/apps/grocto",
     privacyHref: "/privacy-policy#grocto-app",
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.app.fruitsandfood",
+    appStoreUrl: "https://apps.apple.com/in/app/grocto/id6781178717",
+    screenshots: [
+      "/apps/screenshots/grocto-1.jpg",
+      "/apps/screenshots/grocto-2.jpg",
+      "/apps/screenshots/grocto-3.jpg",
+      "/apps/screenshots/grocto-4.jpg",
+    ],
     features: [
-      "Nearby restaurants, dhabas, bakeries, and the Grocto fruits store",
-      "GPS location, saved addresses, and service-area checks",
-      "Cart, coupons, scheduled orders, and special instructions",
-      "UPI and Cash on Delivery",
-      "Live order tracking and in-app notifications",
-      "Order history, invoices, ratings, and English / Hindi support",
+      "Discover nearby restaurants and browse menus",
+      "Dedicated Fruits section with a separate fruit cart",
+      "Search dishes, restaurants, and fruits from one bar",
+      "Apply coupons and place orders in a few taps",
+      "Track order status and view the rider during delivery",
+      "English and Hindi",
     ],
   },
   {
@@ -72,18 +84,32 @@ export const apps = [
     name: "Grocto Partner",
     shortName: "Rider App",
     audience: "Delivery partners",
-    platforms: "Android",
+    platforms: "Android & iOS",
+    icon: "/apps/partner-icon.png",
     summary:
-      "Accept assigned deliveries, navigate with Google Maps, confirm pickup and drop-off, and track daily earnings — including COD collections.",
+      "Deliver orders, track earnings, and manage deliveries with ease. Go online, accept jobs, navigate with live GPS, and stay connected with customers.",
+    about:
+      "Grocto Partner is the delivery-partner app for the Grocto platform. Riders toggle availability, receive assignments with pickup details, complete deliveries step by step, and track earnings, ratings, and support tickets from one place.",
     href: "/apps/partner",
     privacyHref: "/privacy-policy#partner-app",
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.app.fruitsandfooddelivery",
+    appStoreUrl: "https://apps.apple.com/in/app/grocto-partner/id6781178434",
+    screenshots: [
+      "/apps/screenshots/partner-1.jpg",
+      "/apps/screenshots/partner-2.jpg",
+      "/apps/screenshots/partner-3.jpg",
+      "/apps/screenshots/partner-4.jpg",
+    ],
     features: [
-      "Secure login with admin-controlled active or blocked status",
-      "Auto and manual order assignment",
-      "Accept or reject deliveries with automatic reassignment",
-      "Turn-by-turn navigation and live location sharing",
-      "Pickup and delivery confirmation, including COD amount",
-      "Daily completed-order and earnings summary",
+      "One-tap online / offline availability",
+      "Real-time order assignments with pickup details",
+      "Live GPS navigation to restaurants and customers",
+      "Accept or reject deliveries and update status in real time",
+      "In-app chat and one-tap customer calling",
+      "Earnings, delivery history, ratings, and support tickets",
     ],
   },
 ] as const;
+
+export type AppListing = (typeof apps)[number];

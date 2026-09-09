@@ -1,4 +1,4 @@
-import { fullAddress, siteConfig } from "@/lib/site";
+import { apps, fullAddress, siteConfig } from "@/lib/site";
 
 export function JsonLd() {
   const data = {
@@ -53,6 +53,24 @@ export function JsonLd() {
         },
         areaServed: fullAddress,
       },
+      ...apps.map((app) => ({
+        "@type": "MobileApplication",
+        name: app.name,
+        operatingSystem: "Android, iOS",
+        applicationCategory:
+          app.slug === "grocto" ? "FoodAndDrinkApplication" : "BusinessApplication",
+        description: app.summary,
+        image: `${siteConfig.url}${app.icon}`,
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "INR",
+        },
+        downloadUrl: [app.playStoreUrl, app.appStoreUrl],
+        installUrl: app.playStoreUrl,
+        url: `${siteConfig.url}${app.href}`,
+        publisher: { "@id": `${siteConfig.url}/#organization` },
+      })),
     ],
   };
 
