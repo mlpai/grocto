@@ -12,7 +12,7 @@ export const siteConfig = {
   udyam: "UDYAM-PB-03-0073402",
   trademarkClass: "Class 39 — Food delivery services",
   address: {
-    line1: "Bedi Market, Street No. 4",
+    line1: "Bedi Market",
     line2: "Pukhraj Colony",
     city: "Bathinda",
     state: "Punjab",
