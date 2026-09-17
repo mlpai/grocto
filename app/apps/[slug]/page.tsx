@@ -6,7 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { PageHero, Section } from "@/components/page-shell";
 import { StoreButtons } from "@/components/store-buttons";
 import { Button } from "@/components/ui/button";
-import { apps } from "@/lib/site";
+import { apps, siteConfig } from "@/lib/site";
 
 export async function generateStaticParams() {
   return apps.map((app) => ({ slug: app.slug }));
@@ -122,9 +122,20 @@ export default async function AppDetailPage({
               <Link className="text-primary hover:underline" href={app.privacyHref}>
                 Privacy Policy
               </Link>
-              <Link className="text-primary hover:underline" href="/terms">
-                Terms of Service
-              </Link>
+              {app.slug === "partner" ? (
+                <a
+                  className="text-primary hover:underline"
+                  href={siteConfig.panels.partnerTerms}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Partner Panel terms
+                </a>
+              ) : (
+                <Link className="text-primary hover:underline" href="/terms">
+                  Terms of Service
+                </Link>
+              )}
               <Link className="text-primary hover:underline" href="/delete-account">
                 Delete account
               </Link>

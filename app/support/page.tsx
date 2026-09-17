@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHero, Section } from "@/components/page-shell";
 import { siteConfig } from "@/lib/site";
 
@@ -16,16 +15,23 @@ const topics = [
   },
   {
     title: "Grocto Partner riders",
-    body: "Riders who cannot sign in, need a zone change, or have a payout question should email from the mobile number registered on their partner profile.",
+    body: "Riders who cannot sign in, need a zone change, or have a payout question should email from the mobile number registered on their partner profile. Partner onboarding and terms are in the Partner Panel.",
+    href: siteConfig.panels.partnerTerms,
+    linkLabel: "Delivery Partner Terms",
+    external: true,
   },
   {
     title: "Restaurant partners",
     body: "Menu, commission, and payout questions for the Restaurant Panel are handled by the same support inbox. Include your restaurant name.",
+    href: siteConfig.panels.restaurant,
+    linkLabel: "Open Restaurant Panel",
+    external: true,
   },
   {
     title: "Privacy & account deletion",
     body: "To access, correct, or delete personal data, use the Delete Account page or email us with the subject “Privacy request”.",
     href: "/delete-account",
+    linkLabel: "Open delete-account instructions",
   },
 ];
 
@@ -48,13 +54,16 @@ export default function SupportPage() {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {topic.body}
               </p>
-              {topic.href ? (
-                <Link
+              {"href" in topic && topic.href ? (
+                <a
                   href={topic.href}
                   className="mt-4 inline-block text-sm font-semibold text-primary"
+                  {...("external" in topic && topic.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                 >
-                  Open delete-account instructions
-                </Link>
+                  {topic.linkLabel}
+                </a>
               ) : null}
             </article>
           ))}

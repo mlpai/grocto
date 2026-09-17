@@ -142,6 +142,11 @@ export default function PrivacyPage() {
           Partner accounts can be activated or blocked by Grocto administrators.
           Blocking suspends access; it does not automatically erase historical
           delivery records we must keep for accounting or dispute handling.
+          Rider terms are accepted in the{" "}
+          <a className="font-semibold text-primary" href={siteConfig.panels.partnerTerms}>
+            Partner Panel
+          </a>
+          , not on this website.
         </p>
       </LegalSection>
 

@@ -36,6 +36,8 @@ export default function TermsPage() {
             Privacy Policy
           </Link>
           . The services are provided by {siteConfig.legalName} (“Grocto”).
+          Delivery-partner and restaurant contracts are accepted in their own
+          panels, not on this website.
         </p>
         <p>
           We may update these terms. The “Last updated” date on this page is
@@ -96,13 +98,23 @@ export default function TermsPage() {
         <p>
           Independent restaurants remain responsible for food quality,
           packaging, FSSAI compliance, and item descriptions. Grocto Partner
-          riders are responsible for careful handling, timely pickup, and
-          accurate COD collection as shown in the app.
+          riders collect only the COD amount shown in the app.
         </p>
         <p>
-          Restaurant partners use the Grocto Restaurant Panel to manage menus
-          and accept or reject orders. Rejection, unavailability, or delay at
-          the store may lead to cancellation under our refund rules.
+          Restaurant partners use the Restaurant Panel at{" "}
+          <a
+            className="font-semibold text-primary"
+            href={siteConfig.panels.restaurant}
+          >
+            restaurant.grocto.co.in
+          </a>{" "}
+          to manage menus and accept or reject orders. Delivery partners accept
+          their terms on the same panel:{" "}
+          <a className="font-semibold text-primary" href={siteConfig.panels.partnerTerms}>
+            restaurant.grocto.co.in/terms-conditions
+          </a>
+          . Rejection, unavailability, or delay at the store may lead to
+          cancellation under our refund rules.
         </p>
       </LegalSection>
 

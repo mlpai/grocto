@@ -21,6 +21,13 @@ export const siteConfig = {
   },
   supportHours: "Monday – Sunday, 9:00 AM – 9:00 PM IST",
   lastUpdated: "9 September 2026",
+  panels: {
+    restaurant: "https://restaurant.grocto.co.in",
+    partnerTerms:
+      "https://restaurant.grocto.co.in/terms-conditions?user_type=DELIVERY_PARTNER",
+    restaurantTerms:
+      "https://restaurant.grocto.co.in/terms-conditions?user_type=RESTAURANT",
+  },
 } as const;
 
 export const addressLines = [
@@ -89,7 +96,7 @@ export const apps = [
     summary:
       "Deliver orders, track earnings, and manage deliveries with ease. Go online, accept jobs, navigate with live GPS, and stay connected with customers.",
     about:
-      "Grocto Partner is the delivery-partner app for the Grocto platform. Riders toggle availability, receive assignments with pickup details, complete deliveries step by step, and track earnings, ratings, and support tickets from one place.",
+      "Grocto Partner is the delivery-partner app for the Grocto platform. Riders toggle availability, receive assignments with pickup details, complete deliveries step by step, and track earnings, ratings, and support tickets from one place. Partner terms are accepted in the Partner Panel, not on this website.",
     href: "/apps/partner",
     privacyHref: "/privacy-policy#partner-app",
     playStoreUrl:

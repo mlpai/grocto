@@ -69,6 +69,11 @@ export function JsonLd() {
         downloadUrl: [app.playStoreUrl, app.appStoreUrl],
         installUrl: app.playStoreUrl,
         url: `${siteConfig.url}${app.href}`,
+        privacyPolicy: `${siteConfig.url}/privacy-policy`,
+        termsOfService:
+          app.slug === "partner"
+            ? siteConfig.panels.partnerTerms
+            : `${siteConfig.url}/terms`,
         publisher: { "@id": `${siteConfig.url}/#organization` },
       })),
     ],
