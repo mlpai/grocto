@@ -26,7 +26,7 @@ export default function PrivacyPage() {
   return (
     <LegalLayout
       title="Privacy Policy"
-      description="This policy explains what personal data Grocto collects in the customer app and the Partner rider app, why we collect it, and how you can request access or deletion. It is the policy we submit with Google Play and App Store listings."
+      description="This policy explains what personal data Grocto collects in the customer app and the Partner rider app, why we collect it, and how you can request access or deletion."
       updated={siteConfig.lastUpdated}
       toc={toc}
     >
