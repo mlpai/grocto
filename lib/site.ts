@@ -19,7 +19,7 @@ export const siteConfig = {
     pin: "151001",
     country: "India",
   },
-  supportHours: "Monday – Sunday, 9:00 AM – 9:00 PM IST",
+  supportHours: "Monday – Sunday, 09:00 AM – 07:30 PM IST",
   lastUpdated: "9 September 2026",
   panels: {
     restaurant: "https://restaurant.grocto.co.in",
