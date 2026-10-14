@@ -5,7 +5,7 @@ export const siteConfig = {
   tagline: "Food, fruits, and local store delivery — on time, from around you.",
   description:
     "Grocto is the food and fruits delivery platform of Pick & Drop Services, connecting customers, restaurants, and delivery partners in Bathinda.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://grocto.in",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.grocto.co.in",
   email: "support@grocto.co.in",
   gstin: "03AJIPN5172D1ZG",
   pan: "AJIPN5172D",

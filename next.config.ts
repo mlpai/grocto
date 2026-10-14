@@ -37,6 +37,7 @@ const nextConfig: NextConfig = {
           "https://restaurant.grocto.co.in/terms-conditions?user_type=RESTAURANT",
         permanent: false,
       },
+      { source: "/lander", destination: "/get", permanent: false },
       { source: "/refunds", destination: "/refund-policy", permanent: true },
       { source: "/account-deletion", destination: "/delete-account", permanent: true },
     ];
