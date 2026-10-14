@@ -8,8 +8,18 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-navy text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <div className="inline-flex rounded-2xl bg-white p-3">
-            <BrandMark className="h-16 w-auto" />
+          <div className="inline-flex items-center gap-2 rounded-2xl bg-white p-2">
+            <BrandMark className="h-14 w-auto" />
+            <Link href="/get" className="shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/qr/grocto.svg"
+                alt="QR code to download Grocto. iPhone opens the App Store and Android opens Google Play."
+                width={66}
+                height={66}
+                className="size-[66px]"
+              />
+            </Link>
           </div>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-white/70">
             {siteConfig.brand} is operated by {siteConfig.legalName}, a
